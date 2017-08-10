@@ -1,0 +1,25 @@
+<button type="button" class="btn btn-danger" ng-click="$ctrl.stopAll()">Stop all</button>
+<h1>Samorost 3 sound generator</h1>
+
+<div ng-repeat="sound in $ctrl.sounds">
+
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">{{sound.folder}}
+        <span class="badge"> {{sound.fileIndex}}</span>
+      </h3>
+    </div>
+
+    <div class="panel-body">
+        <div id="songButtons" ng-repeat="track in sound.tracks" class="btn-group" style="margin: 3px;">
+          <button class="btn {{track.playing ? 'btn-success' : 'btn-primary' }}" 
+                  ng-click="$ctrl.toggle(sound.folder, track.filename)">
+            {{track.filename}} <span class="badge">{{track.playing | playing}}</span>
+          </button>
+        </div>
+    </div>
+
+  </div>
+
+</div>
